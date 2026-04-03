@@ -47,7 +47,7 @@ const Index = () => {
           animate={{ opacity: 0.5 }}
           className="text-sm tracking-[0.5em] uppercase mb-4"
         >
-          Doc's Hemp RX — Layout Concepts
+          Doc's Hemp — Layout Concepts
         </motion.p>
         <motion.h1
           initial={{ opacity: 0, y: 20 }}

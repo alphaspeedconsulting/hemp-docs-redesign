@@ -174,9 +174,9 @@ const LayoutWellness = () => {
       {/* Footer */}
       <footer className="py-12 px-8" style={{ backgroundColor: "#2d3f34", color: "rgba(254,250,224,0.5)" }}>
         <div className="max-w-6xl mx-auto flex items-center justify-between text-sm">
-          <p>Doc's Hemp RX &nbsp;•&nbsp; Highlands Ranch, CO</p>
-          <p>© 2024 Doc's Hemp RX. All products contain no Δ9THC.</p>
-          <p>hello@docshemprx.com</p>
+          <p>Doc's Hemp &nbsp;•&nbsp; Highlands Ranch, CO</p>
+          <p>© 2024 Doc's Hemp. All products contain no Δ9THC.</p>
+          <p>hello@docs-hemp.com</p>
         </div>
       </footer>
     </div>

@@ -22,7 +22,7 @@ const supportLinks = [
   { label: "FAQ", href: "/faq/" },
   { label: "Shipping & Returns", href: "/shipping-returns/" },
   { label: "Privacy Policy", href: "/privacy-policy/" },
-  { label: "hello@docshemprx.com", href: "mailto:hello@docshemprx.com" },
+  { label: "hello@docs-hemp.com", href: "mailto:hello@docs-hemp.com" },
 ];
 
 const SiteFooter = () => (
@@ -31,7 +31,7 @@ const SiteFooter = () => (
       {/* Brand */}
       <div>
         <a href="/" className="text-xl tracking-[0.3em] uppercase font-light mb-4 font-display text-brand-text hover:text-brand-accent transition-colors block">
-          Doc's <span className="text-brand-accent">Hemp RX</span>
+          Doc's <span className="text-brand-accent">Hemp</span>
         </a>
         <p className="text-sm text-brand-text/50 leading-relaxed">
           Premium indoor-grown THCa. Texas-compliant. Manufacturer direct from
@@ -84,7 +84,7 @@ const SiteFooter = () => (
 
     <div className="text-center pt-8 border-t border-brand-accent/10">
       <p className="text-xs text-brand-text/30">
-        © Doc's Hemp RX 2026. All products are hemp-derived and contain less
+        © Doc's Hemp 2026. All products are hemp-derived and contain less
         than 0.3% Δ9 THC. Products comply with Texas DSHS 2026 regulations.
         Must be 21+ to purchase.
       </p>

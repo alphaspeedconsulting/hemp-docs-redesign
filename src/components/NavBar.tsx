@@ -37,7 +37,7 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
           href="/"
           className="text-2xl tracking-[0.3em] uppercase font-light font-display text-brand-text hover:text-brand-accent transition-colors"
         >
-          Doc's <span className="text-brand-accent">Hemp RX</span>
+          Doc's <span className="text-brand-accent">Hemp</span>
         </a>
 
         {/* Desktop nav */}

@@ -82,7 +82,7 @@ const AgeGate = ({ children }: Props) => {
       <div className="w-full max-w-sm text-center">
         {/* Logo */}
         <p className="text-2xl tracking-[0.3em] uppercase font-light font-display text-brand-text mb-2">
-          Doc's <span className="text-brand-accent">Hemp RX</span>
+          Doc's <span className="text-brand-accent">Hemp</span>
         </p>
         <p className="text-xs tracking-[0.3em] uppercase text-brand-text/40 mb-10">
           Premium THCa · DFW

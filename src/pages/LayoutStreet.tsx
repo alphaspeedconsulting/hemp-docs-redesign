@@ -143,8 +143,8 @@ const LayoutStreet = () => {
       <footer className="py-16 px-8" style={{ borderTop: "2px solid #1a1a1a" }}>
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <p className="text-2xl font-black uppercase">DOC'S</p>
-          <p className="text-xs tracking-[0.3em] uppercase opacity-30">© 2024 DOC'S HEMP RX — HIGHLANDS RANCH, CO</p>
-          <p className="text-xs opacity-30">hello@docshemprx.com</p>
+          <p className="text-xs tracking-[0.3em] uppercase opacity-30">© 2024 DOC'S HEMP — HIGHLANDS RANCH, CO</p>
+          <p className="text-xs opacity-30">hello@docs-hemp.com</p>
         </div>
       </footer>
     </div>
