@@ -4,24 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- SEO: matches Yoast homepage target from 2026-04-03-thca-seo-blog-execution-plan.md -->
-    <title>Buy THCA Flower &amp; Concentrates Online | Doc's Hemp</title>
-    <meta name="description" content="Shop premium indoor-grown THCA flower, concentrates, live rosin, and vapes. Texas-compliant, 3rd-party lab tested, COA on every product. DFW's trusted THCA source." />
+    <!-- SEO: national THCA e-commerce positioning — no flower conflict, no TX-local framing -->
+    <title>Buy THCA Online — Vapes, Gummies &amp; Concentrates | Doc's Hemp</title>
+    <meta name="description" content="Shop premium indoor-grown THCA concentrates, live rosin, and vapes. Farm Bill compliant, 3rd-party lab tested, COA on every product. Ships to 41 states." />
 
-    <!-- Canonical — update to production domain before deployment -->
+    <!-- Canonical — production domain -->
     <link rel="canonical" href="https://docs-hemp.com/" />
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://docs-hemp.com/" />
-    <meta property="og:title" content="Buy THCA Flower &amp; Concentrates Online | Doc's Hemp" />
-    <meta property="og:description" content="Shop premium indoor-grown THCA flower, concentrates, live rosin, and vapes. Texas-compliant, 3rd-party lab tested." />
+    <meta property="og:title" content="Buy THCA Online — Vapes, Gummies &amp; Concentrates | Doc's Hemp" />
+    <meta property="og:description" content="Shop premium indoor-grown THCA concentrates, live rosin, and vapes. Farm Bill compliant, 3rd-party lab tested. Ships to 41 states." />
     <meta property="og:site_name" content="Doc's Hemp" />
+    <!-- NOTE: Upload public/og-image.jpg to WP media at this path before launch -->
+    <meta property="og:image" content="https://docs-hemp.com/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Buy THCA Flower &amp; Concentrates Online | Doc's Hemp" />
-    <meta name="twitter:description" content="Shop premium indoor-grown THCA flower, concentrates, live rosin, and vapes. Texas-compliant, 3rd-party lab tested." />
+    <meta name="twitter:title" content="Buy THCA Online — Vapes, Gummies &amp; Concentrates | Doc's Hemp" />
+    <meta name="twitter:description" content="Shop premium indoor-grown THCA concentrates, live rosin, and vapes. Farm Bill compliant. Ships to 41 states." />
+    <meta name="twitter:image" content="https://docs-hemp.com/og-image.jpg" />
 
     <!-- Google Fonts: Playfair Display (display), Inter (body), JetBrains Mono (data) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -32,11 +37,9 @@
     />
 
     <!--
-      Organization + LocalBusiness schema.
-      NOTE: When deploying to WordPress, this JSON-LD block is moved to
-      wp-deployment/page-new-design.php (inside wp_head()) so Yoast can
-      complement it with its own schema without duplication.
-      For standalone preview only.
+      Organization + WebSite schema — national e-commerce, no LocalBusiness / geo-coordinates.
+      NOTE: When deploying to WordPress, move this JSON-LD to wp-deployment/page-new-design.php
+      (inside wp_head()) so Yoast can complement it without duplication.
     -->
     <script type="application/ld+json">
     {
@@ -49,26 +52,10 @@
           "url": "https://docs-hemp.com",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://docs-hemp.com/wp-content/uploads/logo.png"
+            "url": "https://docs-hemp.com/wp-content/uploads/2025/12/cropped-Docs.png"
           },
+          "areaServed": "US",
           "sameAs": []
-        },
-        {
-          "@type": "LocalBusiness",
-          "@id": "https://docs-hemp.com/#localbusiness",
-          "name": "Doc's Hemp",
-          "description": "Premium indoor-grown THCA flower, concentrates, live rosin, and vapes. Texas-compliant. Lab tested.",
-          "url": "https://docs-hemp.com",
-          "areaServed": {
-            "@type": "GeoCircle",
-            "geoMidpoint": {
-              "@type": "GeoCoordinates",
-              "latitude": 32.7767,
-              "longitude": -96.7970
-            },
-            "geoRadius": "80000"
-          },
-          "priceRange": "$15–$80"
         },
         {
           "@type": "WebSite",
@@ -80,6 +67,61 @@
             "@type": "SearchAction",
             "target": "https://docs-hemp.com/?s={search_term_string}",
             "query-input": "required name=search_term_string"
+          }
+        }
+      ]
+    }
+    </script>
+    <!-- Product rich snippets for featured homepage items -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Featured THCA Products",
+      "url": "https://docs-hemp.com/",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Thor's Hammer THCa Flower",
+            "description": "Premium indoor-grown THCa flower. 22.4% THCa. Staff pick.",
+            "url": "https://docs-hemp.com/product/thors-hammer-flower/",
+            "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "30", "availability": "https://schema.org/InStock" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Tropicana Zkittles Live Rosin",
+            "description": "Fresh frozen solventless live rosin. 74% total cannabinoids.",
+            "url": "https://docs-hemp.com/product/tropicana-zkittles/",
+            "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "40", "availability": "https://schema.org/InStock" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "Diamond Sauce THCa Concentrate",
+            "description": "Wedding Cake diamond sauce. 82% THCa. Farm Bill compliant.",
+            "url": "https://docs-hemp.com/product/diamond-sauce/",
+            "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "17", "availability": "https://schema.org/InStock" }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Product",
+            "name": "510 Live Resin Vape Cartridge",
+            "description": "Sour Diesel 510 live resin cart. 85% total cannabinoids.",
+            "url": "https://docs-hemp.com/product/510-vape-cartridges/",
+            "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "15", "availability": "https://schema.org/InStock" }
           }
         }
       ]

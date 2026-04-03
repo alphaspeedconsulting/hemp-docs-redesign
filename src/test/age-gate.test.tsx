@@ -72,9 +72,29 @@ describe("AgeGate", () => {
     expect(parseInt(stored!, 10)).toBeGreaterThan(0);
   });
 
-  it("bypasses gate for known crawler user-agents", () => {
+  it("bypasses gate for Googlebot", () => {
     Object.defineProperty(navigator, "userAgent", {
       value: "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)",
+      writable: true,
+      configurable: true,
+    });
+    render(<AgeGate><div data-testid="content">Protected Content</div></AgeGate>);
+    expect(screen.getByTestId("content")).toBeTruthy();
+  });
+
+  it("bypasses gate for AhrefsBot", () => {
+    Object.defineProperty(navigator, "userAgent", {
+      value: "Mozilla/5.0 (compatible; AhrefsBot/7.0; +http://ahrefs.com/robot/)",
+      writable: true,
+      configurable: true,
+    });
+    render(<AgeGate><div data-testid="content">Protected Content</div></AgeGate>);
+    expect(screen.getByTestId("content")).toBeTruthy();
+  });
+
+  it("bypasses gate for Semrushbot", () => {
+    Object.defineProperty(navigator, "userAgent", {
+      value: "Mozilla/5.0 (compatible; SemrushBot/7~bl; +http://www.semrush.com/bot.html)",
       writable: true,
       configurable: true,
     });

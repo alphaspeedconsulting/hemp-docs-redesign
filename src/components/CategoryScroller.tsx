@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { fadeUp } from "@/lib/animations";
 import { CATEGORIES } from "@/data/products";
+import { WP_BASE } from "@/lib/links";
 
 const CategoryScroller = () => (
   <section className="py-24 px-8 bg-brand-base">
@@ -15,7 +16,7 @@ const CategoryScroller = () => (
       {CATEGORIES.map((cat, i) => (
         <motion.a
           key={cat.name}
-          href={cat.href}
+          href={WP_BASE + cat.href}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}

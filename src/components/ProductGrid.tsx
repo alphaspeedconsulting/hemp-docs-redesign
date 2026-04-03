@@ -1,8 +1,9 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { PRODUCTS, TX_BANNED_CATEGORIES } from "@/data/products";
 import type { EffectTag } from "@/data/products";
 import EffectNavigator from "./EffectNavigator";
 import ProductCard from "./ProductCard";
+import { WP_BASE } from "@/lib/links";
 
 interface Props {
   selectedState: string;
@@ -41,8 +42,8 @@ const ProductGrid = ({ selectedState, activeEffect, onEffectChange }: Props) => 
 
         {isTX && (
           <p className="text-center text-xs tracking-wider text-brand-text/40 mb-8 border border-brand-accent/15 rounded-sm py-2 px-4 max-w-xl mx-auto">
-            Showing Texas-compliant products only. Smokable flower &amp;
-            pre-rolls are excluded per DSHS 2026 rules.
+            Showing products available in Texas. Smokable flower &amp; pre-rolls
+            are excluded per TX DSHS 2026 rules.
           </p>
         )}
 
@@ -74,9 +75,12 @@ const ProductGrid = ({ selectedState, activeEffect, onEffectChange }: Props) => 
         )}
 
         <div className="text-center mt-14">
-          <button className="px-12 py-4 text-sm tracking-[0.3em] uppercase transition-all hover:scale-105 border border-brand-accent text-brand-accent">
+          <a
+            href={WP_BASE + "/shop/"}
+            className="inline-block px-12 py-4 text-sm tracking-[0.3em] uppercase transition-all hover:scale-105 border border-brand-accent text-brand-accent"
+          >
             View All Products
-          </button>
+          </a>
         </div>
       </div>
     </section>

@@ -6,7 +6,7 @@ const perks = [
   "Monthly curated THCa — vapes, gummies & concentrates",
   "30% off retail pricing, every shipment",
   "First access to new drops before the public",
-  "Texas-compliant products only, guaranteed",
+  "Farm Bill compliant products, guaranteed",
 ];
 
 const SubscriptionCTA = () => {
@@ -42,7 +42,7 @@ const SubscriptionCTA = () => {
             className="text-4xl font-light mb-6 font-display text-brand-text"
           >
             Join the{" "}
-            <span className="text-brand-accent">DFW THCa Club</span>
+            <span className="text-brand-accent">Doc's Hemp Inner Circle</span>
           </motion.h3>
           <motion.ul
             initial="hidden"
@@ -78,7 +78,7 @@ const SubscriptionCTA = () => {
                 You're on the list.
               </p>
               <p className="text-sm text-brand-text/50">
-                We'll notify you the moment the DFW THCa Club launches.
+                We'll notify you the moment the Doc's Hemp Inner Circle launches.
               </p>
             </div>
           ) : (

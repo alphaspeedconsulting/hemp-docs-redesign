@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 import { fadeUp } from "@/lib/animations";
 import type { Product } from "@/data/products";
+import { WP_BASE } from "@/lib/links";
 
 const EFFECT_COLOR_VARS: Record<string, string> = {
   relaxation: "--effect-relaxation",
@@ -53,11 +54,11 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
         </span>
       )}
 
-      {/* Texas Compliant badge */}
+      {/* Farm Bill Compliant badge */}
       {product.txCompliant && (
         <span className="absolute top-3 right-3 flex items-center gap-1 px-2 py-1 text-[9px] tracking-wider uppercase rounded-sm bg-brand-base/80 border border-effect-focus/50 text-effect-focus">
           <ShieldCheck className="w-3 h-3" />
-          TX Legal
+          Δ9 &lt; 0.3%
         </span>
       )}
 
@@ -72,9 +73,13 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
 
       {/* Quick-add on hover (shown only for compliant products or non-TX) */}
       {(!showCompliance || product.txCompliant) && (
-        <button className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity px-3 py-2 text-[10px] tracking-[0.2em] uppercase bg-brand-accent text-brand-base font-semibold">
+        <a
+          href={WP_BASE + product.wooUrl}
+          aria-label={`Add ${product.name} to cart`}
+          className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity px-3 py-2 text-[10px] tracking-[0.2em] uppercase bg-brand-accent text-brand-base font-semibold"
+        >
           + Add
-        </button>
+        </a>
       )}
     </div>
 
@@ -82,9 +87,12 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
     <p className="text-xs tracking-[0.2em] uppercase text-brand-text/50 mb-1">
       {product.category}
     </p>
-    <p className="text-lg font-light font-display text-brand-text mb-2">
+    <a href={WP_BASE + product.wooUrl} className="text-lg font-light font-display text-brand-text mb-1 hover:text-brand-accent transition-colors block">
       {product.name}
-    </p>
+    </a>
+    {product.strainName && (
+      <p className="text-xs italic text-brand-text/40 mb-2">{product.strainName}</p>
+    )}
 
     {/* Effect tags (first 2) */}
     <div className="flex flex-wrap gap-1.5 mb-2">
@@ -102,12 +110,19 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
       ))}
     </div>
 
-    {/* Price + COA */}
+    {/* Price + THCa % + COA */}
     <div className="flex items-center justify-between">
-      <p className="text-sm text-brand-accent">{product.price}</p>
+      <div>
+        <p className="text-sm text-brand-accent">{product.price}</p>
+        {product.thcaPercent && (
+          <p className="text-[10px] tracking-wider text-brand-text/40 font-mono mt-0.5">
+            {product.thcaPercent}
+          </p>
+        )}
+      </div>
       {product.coaUrl && (
         <a
-          href={product.coaUrl}
+          href={WP_BASE + product.coaUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-[10px] tracking-wider uppercase text-brand-text/40 hover:text-brand-accent transition-colors"

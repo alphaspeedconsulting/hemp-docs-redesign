@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { fadeUp } from "@/lib/animations";
+import { WP_BASE } from "@/lib/links";
 
 /**
  * Blog article previews linking to the 8 active SEO blog articles.
@@ -61,7 +62,7 @@ const BlogTeaser = () => (
           </motion.h3>
         </div>
         <motion.a
-          href="/blog/"
+          href={WP_BASE + "/blog/"}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
@@ -77,7 +78,7 @@ const BlogTeaser = () => (
         {FEATURED_POSTS.map((post, i) => (
           <motion.a
             key={post.slug}
-            href={post.slug}
+            href={WP_BASE + post.slug}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -104,7 +105,7 @@ const BlogTeaser = () => (
       {/* Mobile "all articles" link */}
       <div className="mt-8 text-center md:hidden">
         <a
-          href="/blog/"
+          href={WP_BASE + "/blog/"}
           className="text-sm tracking-widest uppercase text-brand-accent hover:text-brand-text/80 transition-colors"
         >
           View All Articles →

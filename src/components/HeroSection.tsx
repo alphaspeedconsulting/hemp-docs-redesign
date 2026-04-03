@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { FlaskConical, Leaf, ShieldCheck, Truck } from "lucide-react";
+import { FlaskConical, Globe, ShieldCheck, Truck } from "lucide-react";
 import { fadeUp, fadeIn } from "@/lib/animations";
 import { HERO_IMAGE } from "@/data/products";
+import { WP_BASE } from "@/lib/links";
 
 const HeroSection = () => (
   <section className="relative h-[85vh] overflow-hidden">
@@ -28,22 +29,22 @@ const HeroSection = () => (
         variants={fadeUp}
         className="flex items-center gap-3 mb-6"
       >
-        <Leaf className="w-4 h-4 text-brand-accent" />
+        <Globe className="w-4 h-4 text-brand-accent" />
         <p className="text-sm tracking-[0.4em] uppercase text-brand-accent">
-          Indoor Grown&nbsp;&nbsp;•&nbsp;&nbsp;Manufacturer Direct
+          Indoor Grown&nbsp;&nbsp;•&nbsp;&nbsp;Ships to 41 States
         </p>
       </motion.div>
 
-      <motion.h2
+      <motion.h1
         initial="hidden"
         animate="visible"
         custom={1}
         variants={fadeUp}
         className="text-5xl md:text-7xl leading-[1.1] font-light mb-6 font-display text-brand-text"
       >
-        Verified THCa<br />
+        Buy THCA Online<br />
         <span className="text-brand-accent">Dispensary Quality</span>
-      </motion.h2>
+      </motion.h1>
 
       <motion.p
         initial="hidden"
@@ -52,8 +53,8 @@ const HeroSection = () => (
         variants={fadeUp}
         className="text-lg text-brand-text/70 mb-10 max-w-lg leading-relaxed"
       >
-        Texas-compliant vapes, gummies, and concentrates. Every batch
-        third-party lab tested. COA available on every product.
+        Hemp-derived THCA. Compliant in 41 states. Every batch
+        third-party lab tested — COA available on every product.
       </motion.p>
 
       <motion.div
@@ -64,13 +65,13 @@ const HeroSection = () => (
         className="flex flex-wrap gap-4"
       >
         <a
-          href="/product-category/flower/"
+          href={WP_BASE + "/shop/"}
           className="px-10 py-4 text-sm tracking-[0.3em] uppercase font-semibold transition-all hover:scale-105 bg-brand-accent text-brand-base"
         >
           Shop THCa
         </a>
         <a
-          href="/blog/what-is-thca/"
+          href={WP_BASE + "/blog/what-is-thca/"}
           className="px-10 py-4 text-sm tracking-[0.3em] uppercase transition-all hover:scale-105 border border-brand-accent/40 text-brand-accent"
         >
           Learn More
@@ -87,8 +88,9 @@ const HeroSection = () => (
       className="absolute bottom-8 right-8 md:right-16 z-10 flex gap-6 md:gap-8"
     >
       {[
-        { label: "Texas Compliant", Icon: ShieldCheck },
+        { label: "Farm Bill Compliant", Icon: ShieldCheck },
         { label: "Lab Tested", Icon: FlaskConical },
+        { label: "Ships to 41 States", Icon: Globe },
         { label: "Free Shipping $50+", Icon: Truck },
       ].map(({ label, Icon }) => (
         <div

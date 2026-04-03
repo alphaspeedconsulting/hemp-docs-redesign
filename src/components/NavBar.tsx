@@ -1,12 +1,14 @@
 import { useState } from "react";
 import { Menu, ShoppingBag, X } from "lucide-react";
+import { WP_BASE } from "@/lib/links";
 
 /**
  * Nav links map to real WordPress/WooCommerce URLs on docs-hemp.com.
  * These are <a href> tags (not React Router Links) — WP handles these routes.
+ * WP_BASE is prepended so staging clicks land on the live WP site instead of 404.
  */
 const NAV_LINKS = [
-  { label: "Shop", href: "/product-category/flower/" },
+  { label: "Shop", href: "/shop/" },
   { label: "Blog", href: "/blog/" },
   { label: "Lab Results", href: "/lab-results/" },
   { label: "Contact", href: "/contact/" },
@@ -34,7 +36,7 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
       <div className="flex items-center justify-between px-8 py-5">
         {/* Logo — links to WP homepage */}
         <a
-          href="/"
+          href={WP_BASE + "/"}
           className="text-2xl tracking-[0.3em] uppercase font-light font-display text-brand-text hover:text-brand-accent transition-colors"
         >
           Doc's <span className="text-brand-accent">Hemp</span>
@@ -45,7 +47,7 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
           {NAV_LINKS.map(({ label, href }) => (
             <a
               key={label}
-              href={href}
+              href={WP_BASE + href}
               className="text-sm tracking-widest uppercase text-brand-text/60 hover:text-brand-text transition-colors"
             >
               {label}
@@ -84,9 +86,9 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
           </div>
 
           {/* Cart */}
-          <button className="text-brand-text/60 hover:text-brand-text transition-colors relative">
+          <a href={WP_BASE + "/cart-2/"} className="text-brand-text/60 hover:text-brand-text transition-colors relative">
             <ShoppingBag className="w-5 h-5" />
-          </button>
+          </a>
 
           {/* Mobile toggle */}
           <button
@@ -105,7 +107,7 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
           {NAV_LINKS.map(({ label, href }) => (
             <a
               key={label}
-              href={href}
+              href={WP_BASE + href}
               onClick={() => setMobileOpen(false)}
               className="block text-sm tracking-widest uppercase text-brand-text/70 hover:text-brand-text transition-colors"
             >

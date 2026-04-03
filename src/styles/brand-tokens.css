@@ -27,6 +27,7 @@
   --effect-social:      15 40% 55%;    /* warm terracotta      — Sativa/Soc   */
 
   /* ─── Typography ─────────────────────────────────────────────────────── */
+  --font-heading: 'Playfair Display', Georgia, serif;
   --font-display: 'Playfair Display', Georgia, serif;
   --font-body:    Inter, system-ui, -apple-system, sans-serif;
   --font-mono:    'JetBrains Mono', 'Fira Mono', 'Courier New', monospace;

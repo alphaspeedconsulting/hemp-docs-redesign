@@ -1,6 +1,14 @@
 import { describe, it, expect } from "vitest";
 import { PRODUCTS, TX_BANNED_CATEGORIES } from "@/data/products";
 
+describe("Product data integrity", () => {
+  it("all products have a wooUrl pointing to a /product/ path", () => {
+    PRODUCTS.forEach((p) => {
+      expect(p.wooUrl, `${p.name} missing wooUrl`).toMatch(/^\/product\//);
+    });
+  });
+});
+
 describe("State compliance filter", () => {
   it("TX_BANNED_CATEGORIES contains Indoor Flower and Pre Roll", () => {
     expect(TX_BANNED_CATEGORIES).toContain("Indoor Flower");

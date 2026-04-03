@@ -21,8 +21,10 @@ export interface Product {
   id: string;
   name: string;
   category: string;
-  /** Deferred — will be populated from WooCommerce product attribute */
+  /** THCa percentage or total cannabinoid range from COA */
   thcaPercent?: string;
+  /** Strain name (separate from product name for concentrates/carts) */
+  strainName?: string;
   price: string;
   image: string;
   badge?: string;
@@ -30,65 +32,87 @@ export interface Product {
   /** Whether the product is legal in Texas under current DSHS rules */
   txCompliant: boolean;
   coaUrl?: string;
+  /** WooCommerce product page slug — used for "+ Add" and product card links */
+  wooUrl: string;
 }
 
 export const PRODUCTS: Product[] = [
   {
     id: "thors-hammer",
-    name: "Thors Hammer",
+    name: "Thor's Hammer",
     category: "Indoor Flower",
+    thcaPercent: "22.4%",
     price: "$30–$60",
     image: productFlower,
     badge: "Staff Pick",
     effectTags: ["relaxation", "sleep"],
     txCompliant: false, // smokable flower — TX ban active
+    coaUrl: "/lab-results/",
+    wooUrl: "/product/thors-hammer-flower/",
   },
   {
     id: "tropicana-zkittles",
     name: "Tropicana Zkittles",
     category: "Live Rosin",
+    thcaPercent: "74% total cannabinoids",
     price: "$40–$45",
     image: productRosin,
     badge: "New",
     effectTags: ["euphoria", "creative"],
     txCompliant: true,
+    coaUrl: "/lab-results/",
+    wooUrl: "/product/tropicana-zkittles/",
   },
   {
     id: "diamond-sauce",
     name: "Diamond Sauce",
+    strainName: "Wedding Cake",
     category: "Concentrate",
+    thcaPercent: "82% THCa",
     price: "$17",
     image: productConcentrate,
     effectTags: ["euphoria", "social"],
     txCompliant: true,
+    coaUrl: "/lab-results/",
+    wooUrl: "/product/diamond-sauce/",
   },
   {
     id: "live-resin-cart",
     name: "510 Live Resin Cart",
+    strainName: "Sour Diesel",
     category: "Vape",
+    thcaPercent: "85% total cannabinoids",
     price: "$15",
     image: productVape,
     effectTags: ["focus", "creative"],
     txCompliant: true,
+    coaUrl: "/lab-results/",
+    wooUrl: "/product/510-vape-cartridges/",
   },
   {
     id: "blackberry-kush",
     name: "Blackberry Kush",
     category: "Indoor Flower",
+    thcaPercent: "19.8%",
     price: "$30–$60",
     image: productFlower,
     badge: "Exotic",
     effectTags: ["relaxation", "sleep"],
     txCompliant: false, // smokable flower — TX ban active
+    coaUrl: "/lab-results/",
+    wooUrl: "/product/blackberry-kush/",
   },
   {
     id: "thca-prerolls",
     name: "THCa Pre Rolls",
     category: "Pre Roll",
+    thcaPercent: "18–24% THCa",
     price: "$15–$21",
     image: productPreroll,
     effectTags: ["social", "relaxation"],
     txCompliant: false, // pre-rolls — TX ban active
+    coaUrl: "/lab-results/",
+    wooUrl: "/product/pre-rolls/",
   },
 ];
 

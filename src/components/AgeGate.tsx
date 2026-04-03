@@ -6,7 +6,7 @@ const EXPIRY_MS = 24 * 60 * 60 * 1000; // 24 hours
 /** Returns true if this user-agent appears to be a search engine crawler. */
 function isCrawler(): boolean {
   const ua = navigator.userAgent.toLowerCase();
-  return /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebot|ia_archiver/.test(
+  return /googlebot|bingbot|slurp|duckduckbot|baiduspider|yandexbot|facebot|ia_archiver|ahrefsbot|semrushbot|mj12bot|dotbot|rogerbot/.test(
     ua
   );
 }
@@ -85,7 +85,7 @@ const AgeGate = ({ children }: Props) => {
           Doc's <span className="text-brand-accent">Hemp</span>
         </p>
         <p className="text-xs tracking-[0.3em] uppercase text-brand-text/40 mb-10">
-          Premium THCa · DFW
+          Premium THCa · Denver, CO
         </p>
 
         <div className="p-8 rounded-sm border border-brand-accent/20 bg-brand-accent/5">
