@@ -3,7 +3,7 @@ import { PRODUCTS, TX_BANNED_CATEGORIES } from "@/data/products";
 import type { EffectTag } from "@/data/products";
 import EffectNavigator from "./EffectNavigator";
 import ProductCard from "./ProductCard";
-import { WP_BASE } from "@/lib/links";
+import { Link } from "react-router-dom";
 
 interface Props {
   selectedState: string;
@@ -75,12 +75,12 @@ const ProductGrid = ({ selectedState, activeEffect, onEffectChange }: Props) => 
         )}
 
         <div className="text-center mt-14">
-          <a
-            href={WP_BASE + "/shop/"}
+          <Link
+            to="/shop"
             className="inline-block px-12 py-4 text-sm tracking-[0.3em] uppercase transition-all hover:scale-105 border border-brand-accent text-brand-accent"
           >
             View All Products
-          </a>
+          </Link>
         </div>
       </div>
     </section>

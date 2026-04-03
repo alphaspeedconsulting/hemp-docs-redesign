@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { fadeUp } from "@/lib/animations";
-import { WP_BASE } from "@/lib/links";
+import { WP_BASE, WP_TARGET } from "@/lib/links";
 
 /**
  * Blog article previews linking to the 8 active SEO blog articles.
@@ -61,17 +62,12 @@ const BlogTeaser = () => (
             Know Before You Buy
           </motion.h3>
         </div>
-        <motion.a
-          href={WP_BASE + "/blog/"}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true }}
-          custom={0}
-          variants={fadeUp}
+        <Link
+          to="/blog"
           className="hidden md:flex items-center gap-2 text-sm tracking-widest uppercase text-brand-accent hover:text-brand-text/80 transition-colors"
         >
           All Articles <ArrowRight className="w-4 h-4" />
-        </motion.a>
+        </Link>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -79,6 +75,8 @@ const BlogTeaser = () => (
           <motion.a
             key={post.slug}
             href={WP_BASE + post.slug}
+            target={WP_TARGET}
+            rel="noopener noreferrer"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
@@ -104,12 +102,12 @@ const BlogTeaser = () => (
 
       {/* Mobile "all articles" link */}
       <div className="mt-8 text-center md:hidden">
-        <a
-          href={WP_BASE + "/blog/"}
+        <Link
+          to="/blog"
           className="text-sm tracking-widest uppercase text-brand-accent hover:text-brand-text/80 transition-colors"
         >
           View All Articles →
-        </a>
+        </Link>
       </div>
     </div>
   </section>

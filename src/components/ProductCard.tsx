@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { ShieldCheck } from "lucide-react";
 import { fadeUp } from "@/lib/animations";
 import type { Product } from "@/data/products";
-import { WP_BASE } from "@/lib/links";
+import { WP_BASE, WP_TARGET } from "@/lib/links";
 
 const EFFECT_COLOR_VARS: Record<string, string> = {
   relaxation: "--effect-relaxation",
@@ -75,6 +75,8 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
       {(!showCompliance || product.txCompliant) && (
         <a
           href={WP_BASE + product.wooUrl}
+          target={WP_TARGET}
+          rel="noopener noreferrer"
           aria-label={`Add ${product.name} to cart`}
           className="absolute bottom-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity px-3 py-2 text-[10px] tracking-[0.2em] uppercase bg-brand-accent text-brand-base font-semibold"
         >
@@ -87,7 +89,7 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
     <p className="text-xs tracking-[0.2em] uppercase text-brand-text/50 mb-1">
       {product.category}
     </p>
-    <a href={WP_BASE + product.wooUrl} className="text-lg font-light font-display text-brand-text mb-1 hover:text-brand-accent transition-colors block">
+    <a href={WP_BASE + product.wooUrl} target={WP_TARGET} rel="noopener noreferrer" className="text-lg font-light font-display text-brand-text mb-1 hover:text-brand-accent transition-colors block">
       {product.name}
     </a>
     {product.strainName && (
@@ -123,7 +125,7 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
       {product.coaUrl && (
         <a
           href={WP_BASE + product.coaUrl}
-          target="_blank"
+          target={WP_TARGET}
           rel="noopener noreferrer"
           className="text-[10px] tracking-wider uppercase text-brand-text/40 hover:text-brand-accent transition-colors"
           onClick={(e) => e.stopPropagation()}

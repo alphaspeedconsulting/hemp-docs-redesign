@@ -1,25 +1,7 @@
-import { WP_BASE } from "@/lib/links";
+import { Link } from "react-router-dom";
+import { WP_BASE, WP_TARGET } from "@/lib/links";
 
 /** All hrefs point to real WordPress/WooCommerce pages on docs-hemp.com */
-const shopLinks = [
-  { label: "THCa Vapes", href: "/product-category/vapes/" },
-  { label: "Concentrates", href: "/product-category/concentrates/" },
-  { label: "Live Rosin", href: "/product-category/fresh-frozen-rosin/" },
-  { label: "Pre-Rolls", href: "/product-category/prerolls/" },
-  { label: "THCa Flower", href: "/product-category/flower/" },
-];
-const learnLinks = [
-  { label: "What Is THCA?", href: "/blog/what-is-thca/" },
-  { label: "THCA vs THC", href: "/blog/thca-vs-thc/" },
-  { label: "Is THCA Legal?", href: "/blog/is-thca-legal/" },
-  { label: "Texas THCA Laws 2026", href: "/blog/texas-thca-laws-2026/" },
-  { label: "All Articles", href: "/blog/" },
-];
-const companyLinks = [
-  { label: "About Us", href: "/about/" },
-  { label: "Lab Results", href: "/lab-results/" },
-  { label: "Contact", href: "/contact/" },
-];
 const supportLinks = [
   { label: "FAQ", href: "/faq/" },
   { label: "Shipping Policy", href: "/shipping-policy/" },
@@ -33,9 +15,9 @@ const SiteFooter = () => (
     <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-12">
       {/* Brand */}
       <div>
-        <a href={WP_BASE + "/"} className="text-xl tracking-[0.3em] uppercase font-light mb-4 font-display text-brand-text hover:text-brand-accent transition-colors block">
+        <Link to="/" className="text-xl tracking-[0.3em] uppercase font-light mb-4 font-display text-brand-text hover:text-brand-accent transition-colors block">
           Doc's <span className="text-brand-accent">Hemp</span>
-        </a>
+        </Link>
         <p className="text-sm text-brand-text/50 leading-relaxed">
           Premium indoor-grown THCa. Farm Bill compliant. Ships to 41 states.
         </p>
@@ -45,13 +27,12 @@ const SiteFooter = () => (
       <div>
         <p className="text-sm tracking-[0.2em] uppercase mb-4 text-brand-accent">Shop</p>
         <ul className="space-y-2">
-          {shopLinks.map(({ label, href }) => (
-            <li key={label}>
-              <a href={WP_BASE + href} className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">
-                {label}
-              </a>
-            </li>
-          ))}
+          <li><Link to="/shop" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">All Products</Link></li>
+          <li><Link to="/shop" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">THCa Vapes</Link></li>
+          <li><Link to="/shop" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">Concentrates</Link></li>
+          <li><Link to="/shop" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">Live Rosin</Link></li>
+          <li><Link to="/shop" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">Pre-Rolls</Link></li>
+          <li><Link to="/shop" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">THCa Flower</Link></li>
         </ul>
       </div>
 
@@ -59,13 +40,35 @@ const SiteFooter = () => (
       <div>
         <p className="text-sm tracking-[0.2em] uppercase mb-4 text-brand-accent">Learn</p>
         <ul className="space-y-2">
-          {learnLinks.map(({ label, href }) => (
-            <li key={label}>
-              <a href={WP_BASE + href} className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">
-                {label}
-              </a>
-            </li>
-          ))}
+          <li>
+            <a href={WP_BASE + "/blog/what-is-thca/"} target={WP_TARGET} rel="noopener noreferrer"
+               className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">
+              What Is THCA?
+            </a>
+          </li>
+          <li>
+            <a href={WP_BASE + "/blog/thca-vs-thc/"} target={WP_TARGET} rel="noopener noreferrer"
+               className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">
+              THCA vs THC
+            </a>
+          </li>
+          <li>
+            <a href={WP_BASE + "/blog/is-thca-legal/"} target={WP_TARGET} rel="noopener noreferrer"
+               className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">
+              Is THCA Legal?
+            </a>
+          </li>
+          <li>
+            <a href={WP_BASE + "/blog/texas-thca-laws-2026/"} target={WP_TARGET} rel="noopener noreferrer"
+               className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">
+              Texas THCA Laws 2026
+            </a>
+          </li>
+          <li>
+            <Link to="/blog" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">
+              All Articles
+            </Link>
+          </li>
         </ul>
       </div>
 
@@ -73,10 +76,14 @@ const SiteFooter = () => (
       <div>
         <p className="text-sm tracking-[0.2em] uppercase mb-4 text-brand-accent">Support</p>
         <ul className="space-y-2">
+          <li><Link to="/lab-results" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">Lab Results</Link></li>
+          <li><Link to="/contact" className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors">Contact</Link></li>
           {supportLinks.map(({ label, href }) => (
             <li key={label}>
               <a
                 href={href.startsWith("mailto:") ? href : WP_BASE + href}
+                target={href.startsWith("mailto:") ? undefined : WP_TARGET}
+                rel={href.startsWith("mailto:") ? undefined : "noopener noreferrer"}
                 className="text-sm text-brand-text/50 hover:text-brand-text/80 transition-colors"
               >
                 {label}

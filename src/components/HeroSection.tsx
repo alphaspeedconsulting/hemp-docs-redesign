@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 import { FlaskConical, Globe, ShieldCheck, Truck } from "lucide-react";
 import { fadeUp, fadeIn } from "@/lib/animations";
 import { HERO_IMAGE } from "@/data/products";
-import { WP_BASE } from "@/lib/links";
 
 const HeroSection = () => (
   <section className="relative h-[85vh] overflow-hidden">
@@ -64,18 +64,18 @@ const HeroSection = () => (
         variants={fadeUp}
         className="flex flex-wrap gap-4"
       >
-        <a
-          href={WP_BASE + "/shop/"}
+        <Link
+          to="/shop"
           className="px-10 py-4 text-sm tracking-[0.3em] uppercase font-semibold transition-all hover:scale-105 bg-brand-accent text-brand-base"
         >
           Shop THCa
-        </a>
-        <a
-          href={WP_BASE + "/blog/what-is-thca/"}
+        </Link>
+        <Link
+          to="/blog"
           className="px-10 py-4 text-sm tracking-[0.3em] uppercase transition-all hover:scale-105 border border-brand-accent/40 text-brand-accent"
         >
           Learn More
-        </a>
+        </Link>
       </motion.div>
     </div>
 

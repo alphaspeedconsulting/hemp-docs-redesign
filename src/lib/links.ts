@@ -1,18 +1,20 @@
 /**
- * WP_BASE — staging link helper.
+ * WP_BASE / WP_TARGET — staging link helpers.
  *
- * All internal links (nav, CTAs, categories, blog) are WooCommerce / WordPress
- * root-relative paths (e.g. "/shop/", "/blog/what-is-thca/"). On the production
- * docs-hemp.com domain these resolve correctly as-is.
+ * Navigation (Shop, Blog, Lab Results, Contact) is handled by React Router — no
+ * WP_BASE needed for those.
  *
- * On the GitHub Pages staging preview (alphaspeedconsulting.github.io/hemp-docs-redesign)
- * root-relative links 404 because they resolve against the GH Pages origin.
- * Prepending WP_BASE sends the visitor to the live WP site instead.
+ * WP_BASE is used only for transactional WP-only pages: individual product
+ * pages, cart, checkout, individual blog posts, and policy pages.
  *
- * Usage:  <a href={WP_BASE + "/shop/"}>Shop</a>
+ * On staging (GitHub Pages) those links open in a new tab (WP_TARGET = "_blank")
+ * so the visitor stays on the preview while still being able to inspect the live
+ * WP pages. On production docs-hemp.com they resolve in the same tab.
  */
-export const WP_BASE =
+export const IS_STAGING =
   typeof window !== "undefined" &&
-  window.location.hostname === "alphaspeedconsulting.github.io"
-    ? "https://docs-hemp.com"
-    : "";
+  window.location.hostname === "alphaspeedconsulting.github.io";
+
+export const WP_BASE = IS_STAGING ? "https://docs-hemp.com" : "";
+
+export const WP_TARGET = IS_STAGING ? "_blank" : "_self";

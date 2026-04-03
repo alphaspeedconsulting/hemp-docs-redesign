@@ -1,17 +1,14 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Menu, ShoppingBag, X } from "lucide-react";
-import { WP_BASE } from "@/lib/links";
+import { WP_BASE, WP_TARGET } from "@/lib/links";
 
-/**
- * Nav links map to real WordPress/WooCommerce URLs on docs-hemp.com.
- * These are <a href> tags (not React Router Links) — WP handles these routes.
- * WP_BASE is prepended so staging clicks land on the live WP site instead of 404.
- */
+/** Internal React routes — handled by the SPA, no WordPress needed. */
 const NAV_LINKS = [
-  { label: "Shop", href: "/shop/" },
-  { label: "Blog", href: "/blog/" },
-  { label: "Lab Results", href: "/lab-results/" },
-  { label: "Contact", href: "/contact/" },
+  { label: "Shop", to: "/shop" },
+  { label: "Blog", to: "/blog" },
+  { label: "Lab Results", to: "/lab-results" },
+  { label: "Contact", to: "/contact" },
 ];
 
 const US_STATES = [
@@ -34,24 +31,24 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
   return (
     <nav className="relative z-20 border-b border-brand-accent/20 bg-brand-base">
       <div className="flex items-center justify-between px-8 py-5">
-        {/* Logo — links to WP homepage */}
-        <a
-          href={WP_BASE + "/"}
+        {/* Logo */}
+        <Link
+          to="/"
           className="text-2xl tracking-[0.3em] uppercase font-light font-display text-brand-text hover:text-brand-accent transition-colors"
         >
           Doc's <span className="text-brand-accent">Hemp</span>
-        </a>
+        </Link>
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
-          {NAV_LINKS.map(({ label, href }) => (
-            <a
+          {NAV_LINKS.map(({ label, to }) => (
+            <Link
               key={label}
-              href={WP_BASE + href}
+              to={to}
               className="text-sm tracking-widest uppercase text-brand-text/60 hover:text-brand-text transition-colors"
             >
               {label}
-            </a>
+            </Link>
           ))}
         </div>
 
@@ -85,8 +82,8 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
             </select>
           </div>
 
-          {/* Cart */}
-          <a href={WP_BASE + "/cart-2/"} className="text-brand-text/60 hover:text-brand-text transition-colors relative">
+          {/* Cart — transactional WP page, opens in new tab on staging */}
+          <a href={WP_BASE + "/cart-2/"} target={WP_TARGET} rel="noopener noreferrer" className="text-brand-text/60 hover:text-brand-text transition-colors relative">
             <ShoppingBag className="w-5 h-5" />
           </a>
 
@@ -104,15 +101,15 @@ const NavBar = ({ selectedState, onStateChange }: Props) => {
       {/* Mobile menu */}
       {mobileOpen && (
         <div className="md:hidden bg-brand-base-light border-t border-brand-accent/10 px-8 py-6 space-y-4">
-          {NAV_LINKS.map(({ label, href }) => (
-            <a
+          {NAV_LINKS.map(({ label, to }) => (
+            <Link
               key={label}
-              href={WP_BASE + href}
+              to={to}
               onClick={() => setMobileOpen(false)}
               className="block text-sm tracking-widest uppercase text-brand-text/70 hover:text-brand-text transition-colors"
             >
               {label}
-            </a>
+            </Link>
           ))}
           <div className="pt-4 border-t border-brand-accent/10 flex items-center gap-3">
             <span className="text-xs tracking-wider uppercase text-brand-text/40">
