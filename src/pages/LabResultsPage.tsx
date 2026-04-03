@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FlaskConical, ExternalLink } from "lucide-react";
 import AgeGate from "@/components/AgeGate";
@@ -11,6 +11,10 @@ import { WP_BASE, WP_TARGET } from "@/lib/links";
 
 const LabResultsPage = () => {
   const [selectedState, setSelectedState] = useState("ALL");
+
+  useEffect(() => {
+    document.title = "Lab Results & COA Documents | Doc's Hemp";
+  }, []);
 
   return (
     <AgeGate>

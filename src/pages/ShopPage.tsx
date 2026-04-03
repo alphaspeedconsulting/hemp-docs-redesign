@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import type { EffectTag } from "@/data/products";
 import AgeGate from "@/components/AgeGate";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -10,6 +10,10 @@ import SiteFooter from "@/components/SiteFooter";
 const ShopPage = () => {
   const [selectedState, setSelectedState] = useState("TX");
   const [activeEffect, setActiveEffect] = useState<EffectTag | null>(null);
+
+  useEffect(() => {
+    document.title = "Shop THCA Products — Vapes, Concentrates & Live Rosin | Doc's Hemp";
+  }, []);
 
   return (
     <AgeGate>

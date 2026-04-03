@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Mail, MessageSquare, Clock } from "lucide-react";
 import AgeGate from "@/components/AgeGate";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -7,6 +7,10 @@ import SiteFooter from "@/components/SiteFooter";
 
 const ContactPage = () => {
   const [selectedState, setSelectedState] = useState("ALL");
+
+  useEffect(() => {
+    document.title = "Contact Doc's Hemp | Questions & Support";
+  }, []);
 
   return (
     <AgeGate>
