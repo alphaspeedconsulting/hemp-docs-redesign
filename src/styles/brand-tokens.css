@@ -1,0 +1,38 @@
+/*
+ * Earthy Premium — "Verified Connoisseur" Brand Token System
+ * Design Pole A: Secret Nature-inspired + Texas Compliance Premium
+ *
+ * All color values are raw HSL channel numbers (no hsl() wrapper).
+ * Usage in CSS:   hsl(var(--brand-accent))
+ * Usage w/ alpha: hsl(var(--brand-accent) / 0.08)
+ * Usage in Tailwind: bg-brand-accent, bg-brand-accent/8
+ *
+ * To re-theme the entire site, edit ONLY this file.
+ */
+
+:root {
+  /* ─── Core Palette ────────────────────────────────────────────────────── */
+  --brand-base:         100 30% 6%;    /* #0d1f0d  deep forest black          */
+  --brand-base-light:   110 26% 10%;   /* #122012  section alternation        */
+  --brand-accent:       38 48% 55%;    /* #c9a96e  warm gold                  */
+  --brand-text:         36 38% 93%;    /* #f5f0e8  warm cream                 */
+
+  /* ─── Effect-Mapped Accent Palette (from Secret Nature) ──────────────── */
+  /* Used by the Effect Navigator component for mood/effect tags             */
+  --effect-relaxation:  25 25% 58%;    /* #af8e78  warm sand   — Indica/Relax */
+  --effect-sleep:       233 10% 52%;   /* #737893  blue-grey   — Indica/Sleep */
+  --effect-focus:       140 8% 65%;    /* #9aae9c  sage        — Sativa/Focus */
+  --effect-euphoria:    157 42% 28%;   /* #2b6352  deep green  — Hybrid/Euph  */
+  --effect-creative:    38 48% 55%;    /* shares brand-accent gold            */
+  --effect-social:      15 40% 55%;    /* warm terracotta      — Sativa/Soc   */
+
+  /* ─── Typography ─────────────────────────────────────────────────────── */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    Inter, system-ui, -apple-system, sans-serif;
+  --font-mono:    'JetBrains Mono', 'Fira Mono', 'Courier New', monospace;
+
+  /* ─── Border Radius Scale ─────────────────────────────────────────────── */
+  --radius-sm:  0.125rem;  /* 2px  — sharp, premium card edges  */
+  --radius-md:  0.25rem;   /* 4px  — buttons, inputs            */
+  --radius-lg:  0.5rem;    /* 8px  — modals, dialogs            */
+}

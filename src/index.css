@@ -1,0 +1,75 @@
+/*
+ * CSS Zen Garden Architecture
+ *
+ * Layer 1 (brand-tokens.css): Raw brand values — edit this to re-theme.
+ * Layer 2 (this file):        Maps brand tokens → shadcn semantic tokens.
+ *
+ * Never hardcode hex values in components. All colors flow from brand tokens.
+ */
+
+@import "./styles/brand-tokens.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  /*
+   * Semantic token mapping: brand tokens → shadcn/Tailwind utility names.
+   * hsl(var(--background)) resolves through var(--brand-base) → "100 30% 6%"
+   */
+  :root {
+    --background:             var(--brand-base);
+    --foreground:             var(--brand-text);
+
+    --card:                   var(--brand-base-light);
+    --card-foreground:        var(--brand-text);
+
+    --popover:                var(--brand-base-light);
+    --popover-foreground:     var(--brand-text);
+
+    /* primary = warm gold accent (buttons, links, highlights) */
+    --primary:                var(--brand-accent);
+    --primary-foreground:     var(--brand-base);
+
+    /* secondary = subtle elevated surface */
+    --secondary:              var(--brand-base-light);
+    --secondary-foreground:   var(--brand-text);
+
+    --muted:                  var(--brand-base-light);
+    --muted-foreground:       var(--brand-text);
+
+    --accent:                 var(--brand-base-light);
+    --accent-foreground:      var(--brand-accent);
+
+    --destructive:            0 84% 60%;
+    --destructive-foreground: var(--brand-text);
+
+    --border:                 var(--brand-base-light);
+    --input:                  var(--brand-base-light);
+    --ring:                   var(--brand-accent);
+
+    --radius: var(--radius-md);
+
+    /* shadcn sidebar tokens */
+    --sidebar-background:          var(--brand-base-light);
+    --sidebar-foreground:          var(--brand-text);
+    --sidebar-primary:             var(--brand-accent);
+    --sidebar-primary-foreground:  var(--brand-base);
+    --sidebar-accent:              var(--brand-base);
+    --sidebar-accent-foreground:   var(--brand-text);
+    --sidebar-border:              var(--brand-base-light);
+    --sidebar-ring:                var(--brand-accent);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+}
