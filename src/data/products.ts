@@ -34,6 +34,8 @@ export interface Product {
   coaUrl?: string;
   /** WooCommerce product page slug — used for "+ Add" and product card links */
   wooUrl: string;
+  /** Top terpenes from COA — displayed for connoisseur audience */
+  terpenes?: string[];
 }
 
 export const PRODUCTS: Product[] = [
@@ -49,6 +51,7 @@ export const PRODUCTS: Product[] = [
     txCompliant: false, // smokable flower — TX ban active
     coaUrl: "/lab-results/",
     wooUrl: "/product/thors-hammer-flower/",
+    terpenes: ["Myrcene", "Caryophyllene", "Limonene"],
   },
   {
     id: "tropicana-zkittles",
@@ -62,6 +65,7 @@ export const PRODUCTS: Product[] = [
     txCompliant: true,
     coaUrl: "/lab-results/",
     wooUrl: "/product/tropicana-zkittles/",
+    terpenes: ["Limonene", "Caryophyllene", "Linalool"],
   },
   {
     id: "diamond-sauce",
@@ -75,6 +79,7 @@ export const PRODUCTS: Product[] = [
     txCompliant: true,
     coaUrl: "/lab-results/",
     wooUrl: "/product/diamond-sauce/",
+    terpenes: ["Limonene", "Caryophyllene", "Myrcene"],
   },
   {
     id: "live-resin-cart",
@@ -88,6 +93,7 @@ export const PRODUCTS: Product[] = [
     txCompliant: true,
     coaUrl: "/lab-results/",
     wooUrl: "/product/510-vape-cartridges/",
+    terpenes: ["Myrcene", "Limonene", "Ocimene"],
   },
   {
     id: "blackberry-kush",
@@ -101,6 +107,7 @@ export const PRODUCTS: Product[] = [
     txCompliant: false, // smokable flower — TX ban active
     coaUrl: "/lab-results/",
     wooUrl: "/product/blackberry-kush/",
+    terpenes: ["Myrcene", "Caryophyllene", "Linalool"],
   },
   {
     id: "thca-prerolls",
@@ -113,6 +120,7 @@ export const PRODUCTS: Product[] = [
     txCompliant: false, // pre-rolls — TX ban active
     coaUrl: "/lab-results/",
     wooUrl: "/product/pre-rolls/",
+    terpenes: ["Myrcene", "Pinene", "Caryophyllene"],
   },
 ];
 

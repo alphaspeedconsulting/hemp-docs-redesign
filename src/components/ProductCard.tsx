@@ -112,6 +112,20 @@ const ProductCard = ({ product, showCompliance, animationIndex = 0 }: Props) => 
       ))}
     </div>
 
+    {/* Terpene profile (top 2) */}
+    {product.terpenes && product.terpenes.length > 0 && (
+      <div className="flex flex-wrap gap-1 mb-2">
+        {product.terpenes.slice(0, 2).map((t) => (
+          <span
+            key={t}
+            className="text-[9px] tracking-[0.1em] text-brand-text/30 border border-brand-text/10 px-1.5 py-0.5"
+          >
+            {t}
+          </span>
+        ))}
+      </div>
+    )}
+
     {/* Price + THCa % + COA */}
     <div className="flex items-center justify-between">
       <div>
