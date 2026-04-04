@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import type { EffectTag } from "@/data/products";
 import AgeGate from "@/components/AgeGate";
 import AnnouncementBar from "@/components/AnnouncementBar";
@@ -6,14 +6,18 @@ import NavBar from "@/components/NavBar";
 import CategoryScroller from "@/components/CategoryScroller";
 import ProductGrid from "@/components/ProductGrid";
 import SiteFooter from "@/components/SiteFooter";
+import { usePageMeta } from "@/lib/usePageMeta";
 
 const ShopPage = () => {
   const [selectedState, setSelectedState] = useState("TX");
   const [activeEffect, setActiveEffect] = useState<EffectTag | null>(null);
 
-  useEffect(() => {
-    document.title = "Shop THCA Products — Vapes, Concentrates & Live Rosin | Doc's Hemp";
-  }, []);
+  usePageMeta({
+    title: "Shop THCA Products — Vapes, Concentrates & Live Rosin | Doc's Hemp",
+    description:
+      "Browse Doc's Hemp full collection of indoor-grown THCa products — vapes, concentrates, live rosin, and flower. Filter by effect. Ships to 41 states.",
+    ogUrl: "https://docs-hemp.com/shop/",
+  });
 
   return (
     <AgeGate>

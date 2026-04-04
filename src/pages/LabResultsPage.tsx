@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { FlaskConical, ExternalLink } from "lucide-react";
 import AgeGate from "@/components/AgeGate";
@@ -8,13 +8,17 @@ import SiteFooter from "@/components/SiteFooter";
 import { fadeUp } from "@/lib/animations";
 import { PRODUCTS } from "@/data/products";
 import { WP_BASE, WP_TARGET } from "@/lib/links";
+import { usePageMeta } from "@/lib/usePageMeta";
 
 const LabResultsPage = () => {
   const [selectedState, setSelectedState] = useState("ALL");
 
-  useEffect(() => {
-    document.title = "Lab Results & COA Documents | Doc's Hemp";
-  }, []);
+  usePageMeta({
+    title: "Lab Results & COA Documents | Doc's Hemp",
+    description:
+      "Third-party lab results and Certificates of Analysis for every Doc's Hemp THCA product. ISO-accredited testing confirms Delta-9 THC < 0.3% by dry weight.",
+    ogUrl: "https://docs-hemp.com/lab-results/",
+  });
 
   return (
     <AgeGate>

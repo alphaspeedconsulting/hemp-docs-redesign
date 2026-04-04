@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Clock } from "lucide-react";
 import AgeGate from "@/components/AgeGate";
@@ -7,6 +7,7 @@ import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
 import { fadeUp } from "@/lib/animations";
 import { WP_BASE, WP_TARGET } from "@/lib/links";
+import { usePageMeta } from "@/lib/usePageMeta";
 
 /**
  * Phase 1 blog posts — confirmed live on docs-hemp.com.
@@ -67,9 +68,12 @@ const TAG_COLORS: Record<string, string> = {
 const BlogPage = () => {
   const [selectedState, setSelectedState] = useState("ALL");
 
-  useEffect(() => {
-    document.title = "THCA Education Blog — Laws, Effects & Buying Guides | Doc's Hemp";
-  }, []);
+  usePageMeta({
+    title: "THCA Education Blog — Laws, Effects & Buying Guides | Doc's Hemp",
+    description:
+      "Expert guides on THCa potency, state laws, and how to buy safely online. Covers Texas THCA laws 2026, is THCA legal in all 50 states, and THCA vs THC.",
+    ogUrl: "https://docs-hemp.com/blog/",
+  });
 
   const [featured, ...rest] = POSTS;
 

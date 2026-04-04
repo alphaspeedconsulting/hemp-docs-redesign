@@ -1,16 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Mail, MessageSquare, Clock } from "lucide-react";
 import AgeGate from "@/components/AgeGate";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import NavBar from "@/components/NavBar";
 import SiteFooter from "@/components/SiteFooter";
+import { usePageMeta } from "@/lib/usePageMeta";
 
 const ContactPage = () => {
   const [selectedState, setSelectedState] = useState("ALL");
 
-  useEffect(() => {
-    document.title = "Contact Doc's Hemp | Questions & Support";
-  }, []);
+  usePageMeta({
+    title: "Contact Doc's Hemp | Questions & Support",
+    description:
+      "Questions about your order, lab results, or products? Contact the Doc's Hemp team at hello@docs-hemp.com. We respond within 24 hours.",
+    ogUrl: "https://docs-hemp.com/contact/",
+  });
 
   return (
     <AgeGate>
